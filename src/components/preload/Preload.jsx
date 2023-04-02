@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import "./preload.css"
+import gsap , { Elastic } from 'gsap'
 
 
 const Preload = () => {
@@ -20,7 +21,18 @@ const Preload = () => {
       });
   }, []);
 
-  useEffect(() => fire(), []);
+  useEffect(() => {
+
+    fire()
+
+    gsap.to(".title_preload", {
+      duration: 1.2,
+      yPercent: -30,
+      opacity:1,
+      ease: Elastic.easeInOut
+    })
+
+  }, []);
 
   const fire = useCallback(() => {
     makeShot(0.25, {

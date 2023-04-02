@@ -13,6 +13,10 @@
     overflow: hidden;
 }
 
+.title_preload{
+    opacity: 0;
+}
+
 .title_preload p{
     width: 100%;
     text-align: center;
