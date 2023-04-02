@@ -1,0 +1,56 @@
+.footer{
+    width: 100%;
+    height: 15rem;
+    position: relative;
+    background-color: #0f0f0f;
+    border-top: 1px solid #333;
+    margin-top: 5rem;
+  /*   background: linear-gradient(#000000 ,hsl(0, 37%, 37%) ); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.boxMadeIn{
+    position: relative;
+}
+
+.boxMadeIn a{
+    text-decoration: none;
+    user-select: none;
+}
+
+.boxMadeIn p {
+    color: white;
+    letter-spacing: -.5px;
+    font-family:"fontText";
+    font-size: 1.8rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(270deg, rgb(255, 255, 255) 0%, rgb(255, 226, 220) 100%);
+}
+
+
+.boxMadeIn strong{
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-left: .5rem;
+    letter-spacing: .5px;
+    font-family:"fontText";
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(270deg, rgb(255, 97, 194) 0%, rgb(189, 131, 255) 100%);
+}
+
+
+@media screen and (min-width:900px) {
+    .footer{
+        height: 13rem;
+    }
+    
+}

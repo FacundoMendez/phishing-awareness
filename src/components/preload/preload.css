@@ -1,0 +1,26 @@
+.preload{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title_preload p{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    color: black;
+    filter: drop-shadow( 0 0 10px rgba(255, 253, 253, 0.575));
+    font-family: "Mongoose-bold";
+    letter-spacing: 5px;
+    font-size: 5rem;
+    font-weight: bold;
+    z-index: 1000;
+}
