@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , useState} from 'react'
 import SceneSkull from '../sceneSkull/SceneSkull'
 import "./home.css"
 import gsap , { Elastic } from 'gsap'
 import LineNext from '../../assets/lineNext/LineNext'
+import Preload from '../preload/Preload'
 
 const Home = () => {
+  const [isLoader , setIsLoader] = useState(false)
 
   useEffect(() => {
 
@@ -14,6 +16,7 @@ const Home = () => {
         opacity: 0,
         delay: 3,
         duration: 1,
+        onComplete: () => setIsLoader(true)
       })
 
       tl.to(".alert", {
@@ -53,6 +56,9 @@ const Home = () => {
 
   return (
     <>
+    {
+      !isLoader && <Preload/>
+    }
     <div className="home" >
         <h1 className='alert'>ALERTA!</h1>
 

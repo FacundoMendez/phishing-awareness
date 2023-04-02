@@ -1,16 +1,19 @@
 import './App.css'
-import { useEffect, useRef , lazy,Suspense } from 'react';
+import { useEffect, useRef , lazy,Suspense, useState } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 const Info = lazy(() => import('./components/Info/Info'))
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import Preload from './components/preload/Preload';
+import { gsap } from 'gsap';
 
 function App() {
 
   const scrollRef = useRef(null);
 
+
   useEffect(() => {
+
       if (scrollRef.current) {
         new LocomotiveScroll({
           el: scrollRef.current,
@@ -35,7 +38,6 @@ function App() {
   return (
     <Suspense fallback={[]}>
       <div className="App" ref={scrollRef} >
-          <Preload/>
           <Home/>
           <Info/>
           <Footer/>
