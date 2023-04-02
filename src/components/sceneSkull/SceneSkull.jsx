@@ -74,9 +74,7 @@ const SceneSkull = () => {
         
         // Agregar eventos al canvas por separado
         canvas.addEventListener("click", scrollEffect);
-    
-        canvas.addEventListener("touchstart", scrollEffect)
-            
+        canvas.addEventListener("touchstart", scrollEffect, {passive: true})
     })
 
     
@@ -104,7 +102,7 @@ const SceneSkull = () => {
     controls.enablePan = false
 
     // ajusta la velocidad de amortiguamiento
-    controls.dampingFactor = 0.02
+    controls.dampingFactor = 0.04
     controls.rotateDampingFactor =  0.02
 
 
