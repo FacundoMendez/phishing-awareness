@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .title_preload p{
@@ -18,9 +19,9 @@
     position: relative;
     color: black;
     filter: drop-shadow( 0 0 10px rgba(255, 253, 253, 0.575));
-    font-family: "Mongoose-bold";
-    letter-spacing: 5px;
-    font-size: 5rem;
+    font-family: "fontText";
+    letter-spacing: -1px;
+    font-size: 4rem;
     font-weight: bold;
     z-index: 1000;
 }

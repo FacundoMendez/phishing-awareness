@@ -10,6 +10,12 @@ const Home = () => {
 
       const tl = gsap.timeline()
 
+      tl.to(".preload", {
+        opacity: 0,
+        delay: 3,
+        duration: 1,
+      })
+
       tl.to(".alert", {
         opacity: 1,
         duration: 1,
