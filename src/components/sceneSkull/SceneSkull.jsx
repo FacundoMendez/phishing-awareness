@@ -12,15 +12,31 @@ const SceneSkull = () => {
     useEffect(() => {
 
     const canvas = document.querySelector('.webGlScene');
-    const size = {};
+    /* scene setup */
+    const scene = new Scene();
+        
 
-      size.width = 620;
-      size.height = 600;
+    const size = {
+      width :  620,
+      height : 600
+    }
     
+    window.addEventListener ('resize', () => {
+        size.width = window.innerWidth
+        size.height = window.innerHeight
+    
+        camera.aspect = size.width / size.height
+        camera.updateProjectionMatrix()
+
+        renderer.setSize(size.width, size.height)
+        renderer.setPixelRatio(window.innerWidth < 900 ? 0.5 : Math.min(window.devicePixelRatio, 2))
+    })
+
+
         
     /* camera  */
     const camera = new PerspectiveCamera(64, size.width / size.height, 1, 1000);
-
+    
     if (window.innerWidth > 1400) {
         camera.position.z = -2.5;
       } else if (window.innerWidth < 900 && window.innerWidth > 420) {
@@ -30,23 +46,29 @@ const SceneSkull = () => {
       }
 
     camera.position.y = .9
-        
+    scene.add(camera);
+
+    
+
+
+
     /* renderer */
+    const pixelRatio = window.innerWidth < 900 ? 0.5 : Math.min(window.devicePixelRatio, 2);
+
+
     const renderer = new WebGLRenderer({
         canvas: canvas,
         antialias: true,
-        alpha:true
+        alpha: true,
+        pixelRatio: pixelRatio
     });
+    
     renderer.preserveDrawingBuffer = false;
-    renderer.setSize(size.width, size.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputEncoding = sRGBEncoding;
-    renderer.autoClear = false;
+    renderer.setSize(size.width, size.height)
         
-    /* scene setup */
-    const scene = new Scene();
-    scene.add(camera);
-        
+
+
 
 
 
