@@ -52,7 +52,7 @@ const Home = () => {
       })
 
 
-  },[])
+  },[setIsLoader])
 
   return (
     <>
