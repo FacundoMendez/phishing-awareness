@@ -2,15 +2,13 @@ import './App.css'
 import { useEffect, useRef , lazy,Suspense, useState } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 const Info = lazy(() => import('./components/Info/Info'))
+const Footer = lazy(() => import('./components/footer/Footer'))
+
 import Home from './components/home/Home';
-import Footer from './components/footer/Footer';
-import Preload from './components/preload/Preload';
-import { gsap } from 'gsap';
+
 
 function App() {
-
   const scrollRef = useRef(null);
-
 
   useEffect(() => {
 

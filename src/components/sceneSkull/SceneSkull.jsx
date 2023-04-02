@@ -23,8 +23,10 @@ const SceneSkull = () => {
 
     if (window.innerWidth > 1400) {
         camera.position.z = -2.5;
-      } else if (window.innerWidth < 900) {
+      } else if (window.innerWidth < 900 && window.innerWidth > 420) {
         camera.position.z = -2.6;
+      }else if (window.innerWidth <= 420) {
+        camera.position.z = -3.1;
       }
 
     camera.position.y = .9
