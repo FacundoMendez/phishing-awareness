@@ -165,7 +165,7 @@ const SceneSkull = () => {
           skullModel.rotation.x = Math.cos(elapsedTime) / 11;
         }
         renderer.render(scene, camera);
-         requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
         renderer.autoClear = true;
       };
       
