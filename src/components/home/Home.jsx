@@ -51,6 +51,15 @@ const Home = () => {
         ease: Elastic.easeInOut
       })
 
+      tl.to(".tips-text", {
+        opacity: 1,
+        duration: 2,
+        scale: 1,
+        yPercent: -32,
+        ease: Elastic.easeInOut
+      })
+
+
 
   },[setIsLoader])
 
@@ -71,7 +80,7 @@ const Home = () => {
            <span className='subtitle-box_caiste'>Caíste en un simulacro de  </span>
            <marquee>Phishing</marquee>
           </div>
-          <p>Te compartimos unos pequeños tips para prevenir </p>
+          <p className='tips-text'>Te compartimos unos pequeños tips para prevenir </p>
         </div>
         <LineNext/>
     </div>

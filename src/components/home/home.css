@@ -88,7 +88,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    gap: 1rem;
+    gap: 2rem;
     opacity: 0;
     z-index: 9999;
     
@@ -101,7 +101,6 @@
     flex-direction: column;
     gap: .5rem;
 }
-
 
 
 .home marquee{
@@ -118,7 +117,7 @@
     color: rgb(255, 255, 255);
 }
 
-.home p{
+.tips-text{
     width: 100%;
     text-align: center;
     position: relative;
@@ -130,6 +129,7 @@
     letter-spacing: -.5px;
     font-size: 1.2rem;
     text-transform: uppercase;
+    opacity: 0;
     font-weight: bold;
     padding-top: 2.2rem;
 }
@@ -149,6 +149,16 @@
     font-weight: bold;
 }
 
+@media screen and (min-width:1400px) {
+    .subtitle{
+        gap: 3rem;
+    }
+    .subtile-box{
+        gap: 1rem;
+    }
+    
+    
+}
 
 @media screen and (max-width:370px) {
     .alert{
@@ -157,3 +167,4 @@
     }
     
 }
+
