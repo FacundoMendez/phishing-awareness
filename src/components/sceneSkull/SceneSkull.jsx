@@ -22,8 +22,8 @@ const SceneSkull = () => {
     }
     
     window.addEventListener ('resize', () => {
-        size.width = window.innerWidth
-        size.height = window.innerHeight
+        size.width = 480
+        size.height = 600
     
         camera.aspect = size.width / size.height
         camera.updateProjectionMatrix()
@@ -68,7 +68,6 @@ const SceneSkull = () => {
 
 
 
-
     /* scene gltf */
     let skullModel;
     let bocaObj;
@@ -91,16 +90,8 @@ const SceneSkull = () => {
           });
          
         
-        // Agregar eventos al canvas por separado
-        canvas.addEventListener('touchmove', function(event) {
-          event.preventDefault();
-          event.stopPropagation();
-        }, { passive: false });
-        
-        canvas.addEventListener('scroll', function(event) {
-          event.preventDefault();
-          event.stopPropagation();
-        }, { passive: false });
+          canvas.addEventListener("click", scrollEffect, {passive: true});
+          canvas.addEventListener("touchstart", scrollEffect, {passive: true})
     })
 
     
@@ -174,7 +165,7 @@ const SceneSkull = () => {
           skullModel.rotation.x = Math.cos(elapsedTime) / 11;
         }
         renderer.render(scene, camera);
-        animationId = requestAnimationFrame(animate);
+         requestAnimationFrame(animate);
         renderer.autoClear = true;
       };
       
