@@ -149,3 +149,12 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+
+@media screen and (max-width:370px) {
+    .alert{
+        letter-spacing: 4px;
+        font-size: 9rem;
+    }
+    
+}
