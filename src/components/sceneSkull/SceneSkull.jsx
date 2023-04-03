@@ -17,7 +17,7 @@ const SceneSkull = () => {
         
 
     const size = {
-      width :  620,
+      width :  480,
       height : 600
     }
     
@@ -159,12 +159,14 @@ const SceneSkull = () => {
 
     const pauseAnimation = () => {
       cancelAnimationFrame(animationId);
+
     };
 
     const resumeAnimation = () => {
 
       const animate = () => {
         controls.update();
+
         const elapsedTime = clock.getElapsedTime();
         if (skullModel) {
           skullModel.position.x = Math.sin(elapsedTime) / 10;
