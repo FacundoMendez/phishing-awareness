@@ -66,7 +66,6 @@ const Home = () => {
           <SceneSkull/>
           <div className="column-box-der"></div>
         </div>
-
         <div className="subtitle">
           <div className="subtile-box">
            <span className='subtitle-box_caiste'>Caíste en un simulacro de  </span>
