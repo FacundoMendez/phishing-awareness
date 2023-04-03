@@ -47,7 +47,7 @@ const Home = () => {
         opacity: 1,
         duration: 2,
         scale: 1,
-        yPercent: -30,
+        yPercent: -32,
         ease: Elastic.easeInOut
       })
 
