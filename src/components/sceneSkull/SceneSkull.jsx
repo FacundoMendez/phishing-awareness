@@ -29,7 +29,7 @@ const SceneSkull = () => {
         camera.updateProjectionMatrix()
 
         renderer.setSize(size.width, size.height)
-        renderer.setPixelRatio(window.innerWidth < 900 ? 0.5 : Math.min(window.devicePixelRatio, 2))
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     })
 
 
@@ -53,20 +53,17 @@ const SceneSkull = () => {
 
 
     /* renderer */
-    const pixelRatio = window.innerWidth < 900 ? 0.5 : Math.min(window.devicePixelRatio, 2);
-
 
     const renderer = new WebGLRenderer({
         canvas: canvas,
         antialias: true,
         alpha: true,
-        pixelRatio: pixelRatio
     });
     
     renderer.preserveDrawingBuffer = false;
     renderer.outputEncoding = sRGBEncoding;
     renderer.setSize(size.width, size.height)
-        
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 
 

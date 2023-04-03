@@ -26,8 +26,7 @@ const Preload = () => {
     fire()
 
     gsap.to(".title_preload", {
-      duration: 1.2,
-      yPercent: -30,
+      duration: .5,
       opacity:1,
       ease: Elastic.easeInOut
     })
