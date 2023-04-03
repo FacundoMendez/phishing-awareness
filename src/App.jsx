@@ -1,10 +1,9 @@
 import './App.css'
-import { useEffect, useRef , lazy,Suspense, useState } from 'react';
+import { useEffect, useRef , lazy,Suspense } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
+const Home = lazy(() => import('./components/home/Home'))
 const Info = lazy(() => import('./components/Info/Info'))
 const Footer = lazy(() => import('./components/footer/Footer'))
-
-import Home from './components/home/Home';
 
 
 function App() {
@@ -17,18 +16,7 @@ function App() {
           el: scrollRef.current,
           inertia: 0.8,
           smooth: true,
-          smoothMobile: true,
           getDirection: true,
-          mobile: {
-            smooth: true,
-            inertia: 0.8,
-            getDirection: true,
-          },
-          tablet: {
-            smooth: true,
-            inertia: 0.8,
-            getDirection: true,
-          },
         });
       }
   }, []);

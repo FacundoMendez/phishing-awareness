@@ -61,8 +61,6 @@ const Home = () => {
     }
     <div className="home" >
         <h1 className='alert'>ALERTA!</h1>
-
-
         <div className="box-scroll">
           <div className="column-box-iz"></div>
           <SceneSkull/>

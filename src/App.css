@@ -27,6 +27,7 @@ h2, strong {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 }
 
 
@@ -42,7 +43,7 @@ h2, strong {
 
 
 @font-face {
-  font-family: fontText;
+  font-family: "fontText";
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
