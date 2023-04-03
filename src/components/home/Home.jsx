@@ -69,7 +69,7 @@ const Home = () => {
         <div className="subtitle">
           <div className="subtile-box">
            <span className='subtitle-box_caiste'>Caíste en un simulacro de  </span>
-           <strong>Phishing</strong>
+           <marquee>Phishing</marquee>
           </div>
           <p>Te compartimos unos pequeños tips para prevenir </p>
         </div>

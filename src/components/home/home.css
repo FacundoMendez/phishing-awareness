@@ -104,18 +104,18 @@
 
 
 
-.home strong{
-    background-clip: text;
+.home marquee{
+   /*  background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(270deg, rgb(255, 24, 24) 0%, rgb(253, 85, 85) 100%);
+    background-image: linear-gradient(270deg, rgb(255, 24, 24) 0%, rgb(253, 85, 85) 100%); */
     text-transform: uppercase;
     font-family: "Mongoose-bold";
     font-size: 6rem;
     letter-spacing: .7px;
     filter: drop-shadow(0 0 20px rgba(196, 66, 66, 0.466));
     -webkit-box-reflect: below -33px linear-gradient(transparent,rgba(0,0,0,0.33));
-
+    color: white;
 }
 
 .home p{
