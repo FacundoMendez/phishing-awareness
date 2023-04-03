@@ -24,7 +24,7 @@ const Info = () => {
 
         <div className="awareness">
           <h2>Educa a otros sobre el PHISHING</h2>
-          <p>El phishing es una amenaza que afecta a todos, y educar a otros sobre cómo reconocer y evitar el phishing es esencial para protegerse a sí mismo y a los demás. Comparte información sobre el phishing y sus técnicas con amigos, familiares y colegas para ayudarles a mantenerse seguros en línea.</p>
+          <p>El phishing es una amenaza que afecta a todos, y educar a otros sobre cómo reconocer y evitar el phishing es esencial para protegerse a sí mismo y a los demás. Compartí la dirección de esta página o el código QR para que tus amigos, familiares y colegas puedan informarse sobre el phishing y cómo evitarlo con el fin de ayudarles a mantenerse seguros en internet.</p>
         </div>
         <DiviLine/>
     </section>
