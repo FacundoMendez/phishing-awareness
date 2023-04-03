@@ -78,6 +78,7 @@
     filter: contrast(103%) brightness(105%);
     z-index: 9999;
     opacity: 0;
+    height: 60rem;
     cursor: grab;
 }
 

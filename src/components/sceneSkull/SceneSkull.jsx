@@ -39,9 +39,9 @@ const SceneSkull = () => {
     
     if (window.innerWidth > 1400) {
         camera.position.z = -2.5;
-      } else if (window.innerWidth < 900 && window.innerWidth > 420) {
+      } else if (window.innerWidth < 900 && window.innerWidth > 410) {
         camera.position.z = -2.6;
-      }else if (window.innerWidth <= 420) {
+      }else if (window.innerWidth <= 410) {
         camera.position.z = -3;
       }
 
@@ -92,8 +92,15 @@ const SceneSkull = () => {
          
         
         // Agregar eventos al canvas por separado
-        canvas.addEventListener("click", scrollEffect);
-        canvas.addEventListener("touchstart", scrollEffect, {passive: true})
+        canvas.addEventListener('touchmove', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }, { passive: false });
+        
+        canvas.addEventListener('scroll', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }, { passive: false });
     })
 
     
@@ -174,16 +181,12 @@ const SceneSkull = () => {
 
         
     return () => {
-        return () => {
-            // Limpiar memoria, CPU y GPU
-            renderer.dispose();
-            scene.remove(skullModel);
-            gltfLoader.dispose();
-            dracoLoader.dispose();
-            canvas.addEventListener("click", scrollEffect);
-            canvas.addEventListener("touchstart", scrollEffect)
-          };
-    }
+        // Limpiar memoria, CPU y GPU
+        renderer.dispose();
+        scene.remove(skullModel);
+        gltfLoader.dispose();
+        dracoLoader.dispose();
+      };
 
     }, [])
 
