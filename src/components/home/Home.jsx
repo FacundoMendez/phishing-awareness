@@ -4,11 +4,14 @@ import "./home.css"
 import gsap , { Elastic } from 'gsap'
 import LineNext from '../../assets/lineNext/LineNext'
 import Preload from '../preload/Preload'
+import ReactGA from "react-ga"
+
 
 const Home = () => {
   const [isLoader , setIsLoader] = useState(false)
 
   useEffect(() => {
+      ReactGA.pageview(window.location.pathname);
 
       const tl = gsap.timeline()
       /* effect tv */

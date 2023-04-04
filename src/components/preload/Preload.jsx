@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import "./preload.css"
+import ReactGA from "react-ga"
+
 
 
 const Preload = () => {
@@ -22,6 +24,7 @@ const Preload = () => {
 
   useEffect(() => {
     fire()
+    ReactGA.pageview(window.location.pathname);
   }, []);
 
   const fire = useCallback(() => {
