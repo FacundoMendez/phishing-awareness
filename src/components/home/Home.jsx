@@ -33,44 +33,20 @@ const Home = () => {
       
      
       tl.to(".tv",{
-          duration:2,
+          duration:2.5,
           scaleY:"+= 1500",
       })
         
       gsap.to(".preload", {
         opacity: 0,
-        delay:4.6,
+        delay:4.9,
         onComplete: () => setIsLoader(true)
       })
 
 
-      tl.to(".alert", {
-        opacity: 1,
-        duration: 1,
-        scale: 1,
-        yPercent: -0,
-        ease: Elastic.easeInOut
-      })
-      
-      if (window.innerWidth > 1400) {
-        tl.to(".webGlScene", {
-          opacity: 1,
-          duration: .8,
-          yPercent: -4.5,
-          ease: Elastic.easeInOut
-        })
-      } else if (window.innerWidth < 900) {
-        tl.to(".webGlScene", {
-          opacity: 1,
-          duration: .8,
-          yPercent: -3,
-          ease: Elastic.easeInOut
-        })
-      }
-
       tl.to(".subtitle", {
         opacity: 1,
-        duration: 2,
+        duration: 1,
         scale: 1,
         yPercent: -32,
         ease: Elastic.easeInOut
