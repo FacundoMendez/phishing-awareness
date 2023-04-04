@@ -11,13 +11,38 @@ const Home = () => {
   useEffect(() => {
 
       const tl = gsap.timeline()
+      /* effect tv */
 
-      tl.to(".preload", {
+      tl.to(".title_preload", {
+        duration: .5,
+        opacity:1,
+        ease: Elastic.easeInOut
+      })
+  
+      tl.to(".title_preload", {
+        delay: 2,
         opacity: 0,
-        delay: 3,
         duration: 1,
+      })
+        
+      tl.to(".tv",{
+        duration:1,
+        opacity:1,
+        scaleX:"+= 100"
+      })
+      
+     
+      tl.to(".tv",{
+          duration:2,
+          scaleY:"+= 1500",
+      })
+        
+      gsap.to(".preload", {
+        opacity: 0,
+        delay:4.6,
         onComplete: () => setIsLoader(true)
       })
+
 
       tl.to(".alert", {
         opacity: 1,
@@ -80,7 +105,7 @@ const Home = () => {
            <span className='subtitle-box_caiste'>Caíste en un simulacro de  </span>
           {/*  <marquee>Phishing</marquee> */}
            
-           <div class="glitch" data-text="PHISHING">PHISHING</div> 
+           <div className="glitch" data-text="PHISHING">PHISHING</div> 
 
           </div>
           <p className='tips-text'>Te compartimos unos pequeños tips para prevenir </p>

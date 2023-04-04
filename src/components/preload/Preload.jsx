@@ -25,12 +25,6 @@ const Preload = () => {
 
     fire()
 
-    gsap.to(".title_preload", {
-      duration: .5,
-      opacity:1,
-      ease: Elastic.easeInOut
-    })
-
   }, []);
 
   const fire = useCallback(() => {
@@ -78,6 +72,8 @@ const Preload = () => {
         <div className="title_preload">
             <p>Felicitaciones!</p>
         </div>
+
+        <div className="tv"></div>
     </div>
   )
 }
