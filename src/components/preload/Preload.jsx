@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import "./preload.css"
-import gsap , { Elastic } from 'gsap'
 
 
 const Preload = () => {
@@ -22,9 +21,7 @@ const Preload = () => {
   }, []);
 
   useEffect(() => {
-
     fire()
-
   }, []);
 
   const fire = useCallback(() => {

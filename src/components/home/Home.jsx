@@ -28,7 +28,7 @@ const Home = () => {
       tl.to(".tv",{
         duration:1,
         opacity:1,
-        scaleX:"+= 100"
+        scaleX:"+= 105"
       })
       
      
