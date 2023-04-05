@@ -19,13 +19,21 @@ export default function emailData (){
     
     let uniqueNumber = hashCode(ip);
     
-    // Crea una solicitud POST para enviar la dirección IP a Google Sheets
-    // Crea una solicitud POST para enviar la dirección IP a Google Sheets
-    fetch(`https://script.google.com/macros/s/AKfycbx3zH1tgyGXiAp3NcPaQvaPxuZ1HTlMPf_13OdAy6bVseTY5YKGNhcTdFBKxgtngRLk/exec?ip=${ip}&uniqueNumber=${uniqueNumber}`)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-    }
+// Crea una solicitud POST para enviar la dirección IP y el número único a Google Sheets
+fetch("https://script.google.com/macros/s/AKfycbyTITF_ZygtbMCG9njuaUNqTvgQmargDhMh5cJEqod5T3NU0tEXHfef3s6XfV7y7WGJ/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    ID: ip,
+    UniqueNumber: uniqueNumber
+  })
+})
+.then(response => response.text())
+.then(data => console.log(data))
+
+}
 
 
 
