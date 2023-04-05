@@ -36,7 +36,7 @@ export default function emailData (){
       return parsed;
     }
     
-    async function postDataIfUnique() {
+    async function postDataIfUnique(formData) {
       const parsed = await getTxt();
       const uniqueNumber = formData.get("UniqueNumber");
     
@@ -55,7 +55,7 @@ export default function emailData (){
       }
     }
     
-    postDataIfUnique();
+    postDataIfUnique(formData);
 }
 
 
