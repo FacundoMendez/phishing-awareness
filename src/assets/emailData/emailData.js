@@ -20,7 +20,7 @@ export default function emailData (){
     let uniqueNumber = hashCode(ip);
     
 // Crea una solicitud POST para enviar la dirección IP y el número único a Google Sheets
-fetch("https://script.google.com/macros/s/AKfycbyTITF_ZygtbMCG9njuaUNqTvgQmargDhMh5cJEqod5T3NU0tEXHfef3s6XfV7y7WGJ/exec", {
+fetch("https://script.google.com/macros/s/AKfycbwn5YlYX4ACNnzdrhfOAUc8g3ArEP0hoRMHDgzg-NkiINkoIb5f5NdbpoBvo0W325R7/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
