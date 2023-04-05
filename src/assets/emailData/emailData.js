@@ -22,35 +22,14 @@ export default function emailData (){
     const formDatab = new FormData();
     formDatab.append('Id', ip);
     formDatab.append('UniqueNumber', uniqueNumber);
-    
-    axios.post('https://script.google.com/macros/s/AKfycbx2IjNbNNELkL_wtD0rgcw-wGv_iKDZ1vEe54rWM6fuglFPnKvcwvmRXNzW3zvRgBhJ/exec', {
-        data: formDatab
-    })
-    .then(function (response) {
-        console.log(response.test);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
 
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbym0IKlXlghRF3JcG74LTPCk2Xo0ibINEzRNwv8y1WBjHeYTOUS6kWINdUYPO43M4sE/exec'
+
+      fetch(scriptURL, { method: 'POST', body: formDatab})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
 }
 
-   /*  var numero = Math.floor(Math.random() * (100000 - 0 + 1)) + 0
-    
-    var data = {
-        service_id: 'service_fv51ia9',
-        template_id: 'template_3663h3f',
-        user_id: 'aD2ScZKgaRSUBju0w',
-        template_params: {
-            'id': numero,
-            'g-recaptcha-response': ''
-        }
-    };
 
-    axios.post('https://api.emailjs.com/api/v1.0/email/send', JSON.stringify(data), {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }) */
-   
 
