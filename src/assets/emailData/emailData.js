@@ -31,6 +31,7 @@ export default function emailData (){
     });
     
     
+    
     const formDatab = new FormData();
     formDatab.append('Id', ip);
     formDatab.append('UniqueNumber', uniqueNumber);
