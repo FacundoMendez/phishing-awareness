@@ -19,19 +19,7 @@ export default function emailData (){
     
     let uniqueNumber = hashCode(ip);
 
-    fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-      const ipAddress = data.ip;
-      console.log(ipAddress);
-      // haz lo que necesites con la dirección IP
-    })
-    .catch(error => {
-      console.error('Error al obtener la dirección IP:', error);
-    });
-    
-    
-    
+
     const formDatab = new FormData();
     formDatab.append('Id', ip);
     formDatab.append('UniqueNumber', uniqueNumber);
