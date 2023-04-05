@@ -19,41 +19,21 @@ export default function emailData (){
     
     let uniqueNumber = hashCode(ip);
     
-// Crea una solicitud POST para enviar la dirección IP y el número único a Google Sheets
+    const formDatab = new FormData();
+    formDatab.append('Id', ip);
+    formDatab.append('UniqueNumber', uniqueNumber);
+    
+    axios.post('https://script.google.com/macros/s/AKfycbx2IjNbNNELkL_wtD0rgcw-wGv_iKDZ1vEe54rWM6fuglFPnKvcwvmRXNzW3zvRgBhJ/exec', {
+        data: formDatab
+    })
+    .then(function (response) {
+        console.log(response.test);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
-axios.post('https://script.google.com/macros/s/AKfycbzLa67bU1CKqsdPdr_pJVjxVctym6JgFw1VxItc9sNoe6vqMlDjNXwRpzvdbzbkKtlR/exec', {
-    ID: ip,
-    UniqueNumber: uniqueNumber
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-    .then(data => console.log(data))
-
-  .catch(function (error) {
-    console.log(error);
-  });
 }
-
-
-/* fetch("https://script.google.com/macros/s/AKfycbzLa67bU1CKqsdPdr_pJVjxVctym6JgFw1VxItc9sNoe6vqMlDjNXwRpzvdbzbkKtlR/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    ID: 1,
-    UniqueNumber: 2
-  })
-})
-.then(response => response.text())
-.then(data => console.log(data))
-
-} */
-
-
-
-
 
    /*  var numero = Math.floor(Math.random() * (100000 - 0 + 1)) + 0
     
