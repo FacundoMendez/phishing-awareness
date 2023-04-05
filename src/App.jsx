@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     ReactGA.initialize(GOOGLE_ANALYTICS_ID);
     ReactGA.pageview(window.location.pathname);
+    emailData()
   },[])
 
   return (
