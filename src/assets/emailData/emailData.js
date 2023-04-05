@@ -20,20 +20,36 @@ export default function emailData (){
     let uniqueNumber = hashCode(ip);
     
 // Crea una solicitud POST para enviar la dirección IP y el número único a Google Sheets
-fetch("https://script.google.com/macros/s/AKfycbwn5YlYX4ACNnzdrhfOAUc8g3ArEP0hoRMHDgzg-NkiINkoIb5f5NdbpoBvo0W325R7/exec", {
+
+axios.post('https://script.google.com/macros/s/AKfycbzLa67bU1CKqsdPdr_pJVjxVctym6JgFw1VxItc9sNoe6vqMlDjNXwRpzvdbzbkKtlR/exec', {
+    ID: ip,
+    UniqueNumber: uniqueNumber
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+    .then(data => console.log(data))
+
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+
+/* fetch("https://script.google.com/macros/s/AKfycbzLa67bU1CKqsdPdr_pJVjxVctym6JgFw1VxItc9sNoe6vqMlDjNXwRpzvdbzbkKtlR/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    ID: ip,
-    UniqueNumber: uniqueNumber
+    ID: 1,
+    UniqueNumber: 2
   })
 })
 .then(response => response.text())
 .then(data => console.log(data))
 
-}
+} */
 
 
 
