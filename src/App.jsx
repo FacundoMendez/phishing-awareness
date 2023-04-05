@@ -9,15 +9,14 @@ const Footer = lazy(() => import('./components/footer/Footer'))
 
 
 const GOOGLE_ANALYTICS_ID = "G-561KGVHG3D";
-ReactGA.initialize(GOOGLE_ANALYTICS_ID);
 
 
 function App() {
 
-/*   useEffect(() => {
-    emailData()
-
-  },[]) */
+  useEffect(() => {
+    ReactGA.initialize(GOOGLE_ANALYTICS_ID);
+    ReactGA.pageview(window.location.pathname);
+  },[])
 
   return (
     <Suspense fallback={[]}>
