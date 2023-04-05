@@ -1,7 +1,6 @@
-import Papa, { parse } from "papaparse";
+import Papa  from "papaparse";
 
 export default function emailData (){
-
     let ip = window.location.host;
 
     function hashCode(str) {
@@ -18,11 +17,7 @@ export default function emailData (){
     }
     
     let uniqueNumber = hashCode(ip);
-
-
-    const formData = new FormData();
-    formData.append('Id', ip);
-    formData.append('UniqueNumber', uniqueNumber);
+    let localStorageKey = 'uniqueNumber';
     
     async function getTxt() {
       const res = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_qhauwP8thOL0IeJzNv0EhUS41UmuhqoBaqrDyXcyI-10r5LhFiDUh95IzRTP9xVeDm9B9fdDEYJn/pub?gid=0&output=csv");
@@ -36,26 +31,38 @@ export default function emailData (){
       return parsed;
     }
     
-    async function postDataIfUnique(formData) {
-      const parsed = await getTxt();
-      const uniqueNumber = formData.get("UniqueNumber");
+    async function postDataIfUnique(ip, uniqueNumber) {
+      const formData = new FormData();
+      formData.append('Id', ip);
+      formData.append('UniqueNumber', uniqueNumber);
     
-      // Verifica si existe un objeto en la matriz parsed con el mismo UniqueNumber
+      const parsed = await getTxt();
       const exists = parsed.some(obj => obj.UniqueNumber === uniqueNumber);
     
-      // Si no existe, realiza el POST
       if (!exists) {
         const scriptURL = 'https://script.google.com/macros/s/AKfycbym0IKlXlghRF3JcG74LTPCk2Xo0ibINEzRNwv8y1WBjHeYTOUS6kWINdUYPO43M4sE/exec';
     
         await fetch(scriptURL, { method: 'POST', body: formData })
-          .then(response => console.log('Success!', response))
+          .then(response => {
+            console.log('Success!', response);
+            // guardar el uniqueNumber en el almacenamiento local del navegador
+            localStorage.setItem(localStorageKey, uniqueNumber);
+          })
           .catch(error => console.error('Error!', error.message));
       } else {
         console.log(`El objeto con UniqueNumber ${uniqueNumber} ya existe en la matriz.`);
       }
     }
     
-    postDataIfUnique(formData);
+    // obtener el valor del uniqueNumber guardado en el almacenamiento local del navegador
+    let storedUniqueNumber = localStorage.getItem(localStorageKey);
+    
+    // si el valor existe, utilizarlo en lugar de calcular uno nuevo
+    if (storedUniqueNumber) {
+      uniqueNumber = storedUniqueNumber;
+    }
+    
+    postDataIfUnique(ip, uniqueNumber);
 }
 
 
