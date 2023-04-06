@@ -14,21 +14,19 @@ export default function emailData (){
       const parsed = await new Promise((resolve, reject) => {
         Papa.parse(data, { header: true, complete: (result) => resolve(result.data), error: reject })
        
-        lastNumber = parseInt(parsed[parsed.length - 1].UniqueNumber, 10);
-        console.log(lastNumber)
-        lastNumber =  lastNumber + 1 ;
-        incrementalNumber = lastNumber
-        
-        console.log(lastNumber);
-        formData.append('Id', "id");
-        formData.append('UniqueNumber', incrementalNumber);
-        localStorage.setItem("idNumber", incrementalNumber)
       })
-    
-    
+      lastNumber = parseInt(parsed[parsed.length - 1].UniqueNumber, 10);
+      console.log(lastNumber)
+      lastNumber =  lastNumber + 1 ;
+      incrementalNumber = lastNumber
+      
+      console.log(lastNumber);
+      formData.append('Id', "id");
+      formData.append('UniqueNumber', incrementalNumber);
+      let storage = localStorage.setItem("idNumber", incrementalNumber)
 
     
-      return parsed;
+      return storage;
     }
     
 
