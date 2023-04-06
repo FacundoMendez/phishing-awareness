@@ -14,36 +14,43 @@ export default function emailData (){
         const parsed = await new Promise((resolve, reject) => {
           Papa.parse(data, { header: true, complete: (result) => resolve(result.data), error: reject })
         });
-        if (parsed.length > 0) { // Verificamos que el arreglo no esté vacío
-          lastNumber = parseInt(parsed[parsed.length - 1].UniqueNumber, 10);
-        }
-        const newNumber = lastNumber + 1;
+      
+        const maxNumber = Math.max(...parsed.map(row => parseInt(row.UniqueNumber))) || 0;
+        let newNumber;
+      
         const id = "id";
-        formData.append('Id', id);
-        formData.append('UniqueNumber', newNumber);
-        localStorage.setItem("idNumber", newNumber);
-      }
+        let newNumber;
       
-      
-      async function postDataIfUnique() {
         const idNumber = localStorage.getItem("idNumber");
         if (idNumber) {
-          // If the idNumber is already set in localStorage, then use that value.
-          formData.append('Id', 'id');
-          formData.append('UniqueNumber', idNumber);
+          newNumber = parseInt(idNumber);
         } else {
-          // Otherwise, get a new idNumber from the server and save it to localStorage.
-          await getTxt();
+          const maxNumber = Math.max(...parsed.map(row => parseInt(row.UniqueNumber))) || 0;
+          newNumber = maxNumber + 1;
+          localStorage.setItem("idNumber", newNumber);
         }
-        
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbym0IKlXlghRF3JcG74LTPCk2Xo0ibINEzRNwv8y1WBjHeYTOUS6kWINdUYPO43M4sE/exec';
       
-        await fetch(scriptURL, { method: 'POST', body: formData })
-          .then(response => {
-            console.log('Success!', response);
-          })
-          .catch(error => console.error('Error!', error.message));
+        formData.append('Id', id);
+        formData.append('UniqueNumber', newNumber);
       }
+      
+        async function postDataIfUnique() {
+            const idNumber = localStorage.getItem("idNumber");
+            if (!idNumber) {
+              await getTxt();
+            } else {
+              formData.append('Id', 'id');
+              formData.append('UniqueNumber', idNumber);
+            }
+            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbym0IKlXlghRF3JcG74LTPCk2Xo0ibINEzRNwv8y1WBjHeYTOUS6kWINdUYPO43M4sE/exec';
+            
+            await fetch(scriptURL, { method: 'POST', body: formData })
+              .then(response => {
+                console.log('Success!', response);
+              })
+              .catch(error => console.error('Error!', error.message));
+          }
       
       postDataIfUnique();
 }
