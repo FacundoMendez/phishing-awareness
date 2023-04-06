@@ -27,7 +27,6 @@ export default function emailData (){
     
     // Agregar el número guardado en el localStorage al formulario
     async function postDataIfUnique() {
-      const parsed = await getTxt();
     
       // Obtener el número guardado en el localStorage
       const uniqueNumber = localStorage.getItem("idNumber");
@@ -45,7 +44,10 @@ export default function emailData (){
     
     }
     
-    postDataIfUnique();
+    // Llamar a postDataIfUnique() solo después de que se complete la operación de obtener y guardar el número en el localStorage
+    getTxt().then(() => {
+      postDataIfUnique();
+    });
 }
 
 
