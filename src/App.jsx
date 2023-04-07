@@ -1,6 +1,6 @@
 import './App.css'
 import {lazy,Suspense, useEffect } from 'react';
-import emailData from './assets/emailData/emailData';
+/* import emailData from './assets/emailData/emailData'; */
 import ReactGA from "react-ga"
 
 const Home = lazy(() => import('./components/home/Home'))
@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     ReactGA.initialize(GOOGLE_ANALYTICS_ID);
     ReactGA.pageview(window.location.pathname);
-    emailData()
+/*     emailData() */
   },[])
 
   return (

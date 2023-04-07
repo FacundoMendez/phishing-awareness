@@ -1,4 +1,4 @@
-import Papa  from "papaparse";
+/* import Papa  from "papaparse";
 
 export default function emailData (){
 
@@ -14,9 +14,7 @@ export default function emailData (){
         const parsed = await new Promise((resolve, reject) => {
           Papa.parse(data, { header: true, complete: (result) => resolve(result.data), error: reject })
         });
-      
-        const maxNumber = Math.max(...parsed.map(row => parseInt(row.UniqueNumber))) || 0;
-        let newNumber;
+
       
         const id = "id";
         let newNumber;
@@ -25,7 +23,7 @@ export default function emailData (){
         if (idNumber) {
           newNumber = parseInt(idNumber);
         } else {
-          const maxNumber = Math.max(...parsed.map(row => parseInt(row.UniqueNumber))) || 0;
+        const maxNumber = Math.max(...parsed.map(row => parseInt(row.UniqueNumber)));
           newNumber = maxNumber + 1;
           localStorage.setItem("idNumber", newNumber);
         }
@@ -54,7 +52,7 @@ export default function emailData (){
       
       postDataIfUnique();
 }
-
+ */
 
 
 /* formDatab.append('Id', ip);
