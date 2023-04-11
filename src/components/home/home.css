@@ -87,6 +87,7 @@
     width: 100%;
     gap: 2rem;
     z-index: 9999;
+    top: -10rem;
     
 }
 
@@ -282,11 +283,6 @@
   
 
 
-
-
-
-
-
 .tips-text{
     width: 100%;
     text-align: center;
@@ -319,8 +315,10 @@
 }
 
 @media screen and (min-width:1400px) {
+  
     .subtitle{
         gap: 3rem;
+        top: 0rem;
     }
     .subtile-box{
         gap: 1rem;
