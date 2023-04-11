@@ -86,7 +86,6 @@
     position: relative;
     width: 100%;
     gap: 2rem;
-    opacity: 0;
     z-index: 9999;
     
 }
@@ -300,7 +299,6 @@
     letter-spacing: -.5px;
     font-size: 1.2rem;
     text-transform: uppercase;
-    opacity: 0;
     font-weight: bold;
     padding-top: 2.2rem;
 }

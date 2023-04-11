@@ -45,24 +45,6 @@ const Home = () => {
       })
 
 
-      tl.to(".subtitle", {
-        opacity: 1,
-        duration: 1,
-        scale: 1,
-        yPercent: -32,
-        ease: Elastic.easeInOut
-      })
-
-      tl.to(".tips-text", {
-        opacity: 1,
-        duration: 2,
-        scale: 1,
-        yPercent: -32,
-        ease: Elastic.easeInOut
-      })
-
-
-
   },[setIsLoader])
 
   return (
